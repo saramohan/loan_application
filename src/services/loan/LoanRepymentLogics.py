@@ -53,7 +53,7 @@ class LoanRepaymentBusinessLogic(object):
             remaining_amount = repayment_amount
             for schedule_row in loan_schedule_details:
                 if remaining_amount >= (schedule_row['amount_due']-schedule_row['amount_paid']):
-                    remaining_amount -= schedule_row['amount_due']
+                    remaining_amount -= (schedule_row['amount_due']-schedule_row['amount_paid'])
                     amount_paid = schedule_row['amount_due']
                     repayment_status = "COMPLETED"
                     self.loan_dao.update_schedule_row(schedule_row['repayment_id'], amount_paid, repayment_status)
