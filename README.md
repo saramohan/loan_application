@@ -44,7 +44,7 @@ python services/app_routes.py
 
 ![flask_launch_image](./resources/flask_launch.PNG "Flask Launch")
 
-9. Various scenarios of the Aspire Loan Application are run with the help of scripts. These scripts can be executed in a new terminal window.
+9. Various scenarios of the Aspire Loan Application are run with the help of scripts. These scripts can be executed in a new terminal window. When a new terminal or a new tab in the terminal is opened please export the PYTHONPATH again.
 
 Decisions and Assumptions made as part of this project
 ----------
