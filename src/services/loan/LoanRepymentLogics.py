@@ -1,4 +1,3 @@
-from decimal import Decimal
 from lib.logger_utils import get_logger
 from lib.db_utils import DBConnectionUtils
 from config import config_values
@@ -48,7 +47,7 @@ class LoanRepaymentBusinessLogic(object):
         try:
             response_dict = {}
             loan_id = request_data['loan_id']
-            repayment_amount = Decimal(request_data['repay_amount'])
+            repayment_amount = float(request_data['repay_amount'])
             loan_schedule_details = self.loan_dao.get_loan_schedule(loan_id)
             remaining_amount = repayment_amount
             for schedule_row in loan_schedule_details:
