@@ -72,15 +72,12 @@ def process_pending_applications():
         if response_data.get('status') == 'success' and response_data.get('pending_app_details'):
             for app_details in response_data.get('pending_app_details'):
                 print("The Pending Application Details are as Follows :: ")
-                print("Application ID :: ", response_data.get('pending_app_details')[0]['application_id'])
-                print("Customer ID :: ", response_data.get('pending_app_details')[0]['customer_id'])
-                print("Requested Loan Duration :: ",
-                      response_data.get('pending_app_details')[0]['requested_loan_duration'])
-                print("Requested Loan Amount :: ",
-                      response_data.get('pending_app_details')[0]['requested_loan_amount'])
-                print("Application Status :: ", response_data.get('pending_app_details')[0]['application_status'])
-                print("Application Created Datetime :: ",
-                      response_data.get('pending_app_details')[0]['created_datetime'])
+                print("Application ID :: ", app_details['application_id'])
+                print("Customer ID :: ", app_details['customer_id'])
+                print("Requested Loan Duration :: ", app_details['requested_loan_duration'])
+                print("Requested Loan Amount :: ", app_details['requested_loan_amount'])
+                print("Application Status :: ", app_details['application_status'])
+                print("Application Created Datetime :: ", app_details['created_datetime'])
                 new_application_status = input("***** Can this Application be APPROVED or DECLINED ::  ")
                 change_application_status(app_details, new_application_status)
                 print("----------------------------------------------------------------------------------------------")
