@@ -125,9 +125,56 @@ Notes:
 5. If the application is APPROVED then a loan is created with a weekly repayment schedule based on the details obtained in the application.
 6. If the application is DECLINED then the status of the application is changed and no loan is created.
 
+![approved_applications_db](./resources/approved_applications_db.PNG "Approved Applications DB")
 
 
+![loan_details_approved_db](./resources/loan_details_approved_db.PNG "Loan Details Approved DB")
 
+
+![repayment_calendar_firstview_db](./resources/repayment_calendar_firstview_db.PNG "Loan Repayment Calendar Approved DB")
+
+
+7. Similar to normal users, if the Admin provides the wrong emailid or password for authentication then they will not be allowed to access the admin panel.
+
+![admin_negative_flow](./resources/admin_negative_flow.PNG "Admin Negative Flow")
+
+### Loan Repayment Functionality  ###
+
+The Loan Repayment Functionality simulates the various repayment activity of a loan from the customer's home dashboard. 
+
+~~~~~
+cd src/scripts/
+python customer_account_actions.py 
+~~~~~
+
+Notes:
+
+1. The Loan Repayment Functionality is possible only after a loan and a loan repayment schedule is created.
+2. The script will ask for the customer's emailid and password. Please use the user details that have an APPROVED application.
+3. After the user details are authenticated, if the customer has a open loan then details regarding the same are displayed.
+4. Also details regarding the upcoming loan repayment date, upcoming due amount, past cycle dues that were not cleared and outstanding principal balance is also displayed.
+5. Based on the details, we can decide on the amount to the repaid.
+6. The accounting of the repayment amount selected by the customer starts with the very first non-PENDING cycle in the repayment schedule.
+7. If the amount due for the cycle is completely paid off then the repayment status moves to COMPLETED else the status will remain as PENDING.
+
+![loan_repayment](./resources/loan_repayment.PNG "Loan Reapyment")
+
+
+![loan_repayment_db](./resources/loan_repayment_db.PNG "Loan Reapyment DB")
+
+
+8. If all the cycle's due are COMPLETED, then the status of the loan changes to CLOSED-OFF and the customer become eligible for another new application.
+
+![loan_repayment_closed](./resources/loan_repayment_closed.PNG "Loan Repayment Closed")
+
+
+![loan_repayment_closed_db](./resources/loan_repayment_closed_db.PNG "Loan Reapayment Closed DB")
+
+
+![new_loan_app](./resources/new_loan_app.PNG "New Loan App")
+
+
+![new_loan_app_db](./resources/new_loan_app_db.PNG "New Loan App DB")
 
 
 Note to Windows users
